@@ -308,6 +308,7 @@ function draw(){
    //gameStates start
 
    if(gameState === "play"){
+    
     background(bg);
     
     fill("white");
@@ -327,7 +328,12 @@ function draw(){
     winText.visible = true;
     gameState = "WIN";
    }
+   
 if(gameState === "WIN"){
+  button = createButton('LEVEL 2');
+    button.position(300,300);
+    button.mousePressed(greet);  
+  
   plasticWasteGroup.destroyEach();
   fishGroup.destroyEach();
   diver.visible = false;
@@ -534,16 +540,7 @@ var fish = createSprite(random(1830,1700),random(100,450));
   resizeCanvas(windowWidth, windowHeight);
 }
 
-//call function to play sound
-/*
-function StartIntroSong() {
-  if (gameSound.isPlaying()) {
-    gameSound.stop();
-  } 
-  else {
-    gameSound.play();
-    
-  }
+function greet() {
+  window.location.href = 'https://theinevitable007.github.io/Marine-Ninja-Level-2/';
 }
-*/
 
