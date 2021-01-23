@@ -51,6 +51,10 @@ var fishGroup;
 var gameSound;
 var winSound;
 
+var marineNinjaLogo, marineNinjaLogo_img;
+
+var vid = createVideo(['a.mp4', 'vid.webm']);
+
 function preload(){
   bg = loadImage('images/THEFINALIMGBG.png');
 
@@ -97,6 +101,9 @@ function preload(){
 
   gameSound = loadSound('Sounds/gameSoundTrial.mp3');
   winSound = loadSound('Sounds/Win.mp3');
+
+  marineNinjaLogo_img = loadImage('images/Logo.jpg');
+
  
 
 }
@@ -116,27 +123,33 @@ function setup() {
    octopus.visible = false; 
   
 
-   diver = createSprite(80,150);
+   //diver = createSprite(80,150);
+   diver = createSprite(0.1*windowWidth,0.2*windowHeight);
    diver.addAnimation("diversfirstimg",staticDiver_img);
    diver.scale = 0.25;
 
-   life1 = createSprite(1105,50);
+   //life1 = createSprite(1105,50);
+   life1 = createSprite(0.8*windowWidth,0.06*windowHeight);
    life1.addImage(life1_img);
    life1.scale = 0.5;
 
-   life2 = createSprite(1040,50);
+   //life2 = createSprite(1040,50);
+   life2 = createSprite(0.75*windowWidth,0.06*windowHeight)
    life2.addImage(life2_img);
    life2.scale = 0.5;
 
-   life3 = createSprite(975,50);
+   //life3 = createSprite(975,50);
+   life3 = createSprite(0.7*windowWidth,0.06*windowHeight)
    life3.addImage(life3_img);
    life3.scale = 0.5;
 
-   life4 = createSprite(910,50);
+   //life4 = createSprite(910,50);
+   life4 = createSprite(0.65*windowWidth,0.06*windowHeight)
    life4.addImage(life4_img);
    life4.scale =0.5;
 
-   life5 = createSprite(845,50);
+   //life5 = createSprite(845,50);
+   life5 = createSprite(0.6*windowWidth,0.06*windowHeight)
    life5.addImage(life5_img)
    life5.scale = 0.5;
 
@@ -154,7 +167,8 @@ function setup() {
   //introBg.scale = 0.075
   introBg.visible = false;
 
-  marineNinja = createSprite(950,370);
+  //marineNinja = createSprite(950,370);
+  marineNinja = createSprite(0.5*windowWidth,0.4*windowHeight);
   marineNinja.addImage(marineNinja_img);
   marineNinja.scale = 0.75;
   marineNinja.visible = false;
@@ -169,22 +183,26 @@ function setup() {
   instructions.scale = 0.5;
   instructions.visible = false;
 
-  playButton = createSprite(700,350);
+  //playButton = createSprite(700,350);
+  playButton = createSprite(0.35*windowWidth,0.35*windowHeight);
   playButton.addImage(playButton_img);
   playButton.scale = 0.75;
   playButton.visible = false;   
   
-  BookInstructionButton = createSprite(1400,350);
+ // BookInstructionButton = createSprite(1400,350);
+ BookInstructionButton = createSprite(0.7*windowWidth,0.35*windowHeight);
   BookInstructionButton.addImage(BookInstructionButton_img);
   BookInstructionButton.scale = 0.5;
   BookInstructionButton.visible = false;
   
-  playText = createSprite(660,415);
+  //playText = createSprite(660,415);
+  playText = createSprite(0.33*windowWidth,0.42*windowHeight);
   playText.addImage(playText_img);
   playText.scale = 0.5;
   playText.visible = false;
 
-  score = createSprite(150,100);
+  //score = createSprite(150,100);
+  score = createSprite(0.09*windowWidth,0.11*windowHeight);
   score.addImage(score_img);
   score.scale = 0.5;
   score.visible = false;
@@ -198,6 +216,11 @@ function setup() {
   loseText.addImage(loseText_img);
   loseText.scale = 0.55;
   loseText.visible = false;
+
+  marineNinjaLogo = createSprite(0.935*windowWidth, windowHeight/1.25);
+  marineNinjaLogo.addImage(marineNinjaLogo_img);
+  marineNinjaLogo.scale = 0.75;
+
 
   gameSound.loop();
   gameSound.play();
@@ -294,7 +317,6 @@ function draw(){
         count++
         bombSound.play();
         plasticWasteGroup.get(i).destroy();
-        console.log(count)
         
       }
       
@@ -353,6 +375,8 @@ if(gameState === "END"){
 
 //intro gameStates
 if(gameState === "intro"){
+ 
+  
   marineNinja.visible = true;
   playButton.visible = false;
   BookInstructionButton.visible = false;
@@ -364,9 +388,11 @@ if(gameState === "intro"){
   life4.visible = false;
   life5.visible = false;
 
+
     if(frameCount % 100 === 0){
     gameState = "options"
   }
+  
 }
 if(gameState === "options"){
   marineNinja.visible = false;
@@ -421,7 +447,9 @@ if(gameState === "options"){
 function spawnPlasticWaste(){
   if(frameCount % 50 === 0 && diver.x <= 160){
     var rand = Math.round(random(1,2));
-    var plasticwaste = createSprite(random(320,520), random(-5,-15));
+    //var plasticwaste = createSprite(random(320,520), random(-5,-15));
+    var plasticwaste = createSprite(random(0.3*windowWidth, 0.5*windowWidth), random(-5,-15));
+
     switch(rand){
       case 1: plasticwaste.addImage(plasticBags_img);
      plasticwaste.scale = 0.03
@@ -441,7 +469,9 @@ function spawnPlasticWaste(){
 
   if(frameCount % 40 === 0 && diver.x > 200 && diver.x < 320 ){
     var rand = Math.round(random(1,2));
-    var plasticwaste = createSprite(random(320,480), random(-5,-15));
+    //var plasticwaste = createSprite(random(320,480), random(-5,-15));
+    var plasticwaste = createSprite(random(0.3*windowWidth,0.6*windowWidth), random(-5,-15));
+
     switch(rand){
       case 1: plasticwaste.addImage(plasticBags_img);
      plasticwaste.scale = 0.03
@@ -456,7 +486,7 @@ function spawnPlasticWaste(){
       
     }
     plasticWasteGroup.add(plasticwaste);
-    plasticwaste.velocityY = 1 + scoreText/25; 
+    plasticwaste.velocityY = 2 + scoreText/25; 
     
   }
   if(frameCount % 40 === 0 && diver.x > 320 && diver.x < 480 ){
@@ -476,7 +506,7 @@ function spawnPlasticWaste(){
       
     }
     plasticWasteGroup.add(plasticwaste);
-    plasticwaste.velocityY = 1 + scoreText/25; 
+    plasticwaste.velocityY = 2 + scoreText/25; 
     
   }
   if(frameCount % 40 === 0 && diver.x > 640 && diver.x < 800 ){
@@ -496,7 +526,7 @@ function spawnPlasticWaste(){
       
     }
     plasticWasteGroup.add(plasticwaste);
-    plasticwaste.velocityY = 1 + scoreText/25; 
+    plasticwaste.velocityY = 2 + scoreText/25; 
     
   }
 
@@ -543,4 +573,3 @@ var fish = createSprite(random(1830,1700),random(100,450));
 function greet() {
   window.location.href = 'https://theinevitable007.github.io/Marine-Ninja-Level-2/';
 }
-
