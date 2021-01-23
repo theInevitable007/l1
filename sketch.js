@@ -571,5 +571,5 @@ var fish = createSprite(random(1830,1700),random(100,450));
 }
 
 function greet() {
-  window.location.href = 'https://theinevitable007.github.io/Marine-Ninja-Level-2/';
+  window.location.href = 'https://theinevitable007.github.io/level2MN/';
 }
