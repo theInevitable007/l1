@@ -53,7 +53,6 @@ var winSound;
 
 var marineNinjaLogo, marineNinjaLogo_img;
 
-var vid = createVideo(['a.mp4', 'vid.webm']);
 
 function preload(){
   bg = loadImage('images/THEFINALIMGBG.png');
@@ -94,7 +93,7 @@ function preload(){
 
   angelFish_img = loadImage('images/angelfish.png');
 
-  winText_img = loadImage('images/setFinal.png');
+  winText_img = loadImage('images/Level1Win.png');
   loseText_img = loadImage('images/RELOAD.png');
 
   tempbg = loadImage('images/IntroBackgroundTemp.jpg');
@@ -102,7 +101,7 @@ function preload(){
   gameSound = loadSound('Sounds/gameSoundTrial.mp3');
   winSound = loadSound('Sounds/Win.mp3');
 
-  marineNinjaLogo_img = loadImage('images/Logo.jpg');
+  marineNinjaLogo_img = loadImage('images/Logo.png');
 
  
 
@@ -212,14 +211,14 @@ function setup() {
   winText.scale = 0.55;
   winText.visible = false;
    
-  loseText = createSprite(600,150);
+  loseText = createSprite(windowWidth/2, windowHeight/2);
   loseText.addImage(loseText_img);
   loseText.scale = 0.55;
   loseText.visible = false;
 
-  marineNinjaLogo = createSprite(0.935*windowWidth, windowHeight/1.25);
+  marineNinjaLogo = createSprite(0.925*windowWidth, windowHeight/1.15);
   marineNinjaLogo.addImage(marineNinjaLogo_img);
-  marineNinjaLogo.scale = 0.75;
+  marineNinjaLogo.scale = 0.17;
 
 
   gameSound.loop();
@@ -353,7 +352,7 @@ function draw(){
    
 if(gameState === "WIN"){
   button = createButton('LEVEL 2');
-    button.position(300,300);
+    button.position(852,497);
     button.mousePressed(greet);  
   
   plasticWasteGroup.destroyEach();
@@ -448,7 +447,7 @@ function spawnPlasticWaste(){
   if(frameCount % 50 === 0 && diver.x <= 160){
     var rand = Math.round(random(1,2));
     //var plasticwaste = createSprite(random(320,520), random(-5,-15));
-    var plasticwaste = createSprite(random(0.3*windowWidth, 0.5*windowWidth), random(-5,-15));
+    var plasticwaste = createSprite(random(0.2*windowWidth, 0.9*windowWidth), random(-5,-15));
 
     switch(rand){
       case 1: plasticwaste.addImage(plasticBags_img);
@@ -470,7 +469,7 @@ function spawnPlasticWaste(){
   if(frameCount % 40 === 0 && diver.x > 200 && diver.x < 320 ){
     var rand = Math.round(random(1,2));
     //var plasticwaste = createSprite(random(320,480), random(-5,-15));
-    var plasticwaste = createSprite(random(0.3*windowWidth,0.6*windowWidth), random(-5,-15));
+    var plasticwaste = createSprite(random(0.4*windowWidth,0.9*windowWidth), random(-5,-15));
 
     switch(rand){
       case 1: plasticwaste.addImage(plasticBags_img);
@@ -491,7 +490,7 @@ function spawnPlasticWaste(){
   }
   if(frameCount % 40 === 0 && diver.x > 320 && diver.x < 480 ){
     var rand = Math.round(random(1,2));
-    var plasticwaste = createSprite(random(480,640), random(-5,-15));
+    var plasticwaste = createSprite(random(0.5*windowWidth, 0.9*windowHeight), random(-5,-15));
     switch(rand){
       case 1: plasticwaste.addImage(plasticBags_img);
      plasticwaste.scale = 0.03
@@ -511,7 +510,7 @@ function spawnPlasticWaste(){
   }
   if(frameCount % 40 === 0 && diver.x > 640 && diver.x < 800 ){
     var rand = Math.round(random(1,2));
-    var plasticwaste = createSprite(random(680,800), random(-5,-15));
+    var plasticwaste = createSprite(random(0.3*windowWidth, 0.9*windowHeight), random(-5,-15));
     switch(rand){
       case 1: plasticwaste.addImage(plasticBags_img);
      plasticwaste.scale = 0.03
@@ -571,5 +570,5 @@ var fish = createSprite(random(1830,1700),random(100,450));
 }
 
 function greet() {
-  window.location.href = 'https://theinevitable007.github.io/level2MN/';
+  window.location.href = 'https://theinevitable007.github.io/level2/';
 }
