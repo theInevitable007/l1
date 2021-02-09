@@ -76,12 +76,18 @@ function preload(){
   
   flippedDiver_img = loadAnimation('images/flippedDiver1.png','images/flippedDiver2.png','images/flippedDiver3.png','images/flippedDiver4.png','images/flippedDiver5.png','images/flippedDiver6.png','images/flippedDiver7.png','images/flippedDiver8.png');
   flippedDiverStatic = loadImage('images/flippedDiver1.png');
-
+/*
   life1_img = loadImage('images/fish1.png');
   life2_img = loadImage('images/fish2.png');
   life3_img = loadImage('images/fish3.png');
   life4_img = loadImage('images/fish4.png');
   life5_img = loadImage('images/fish5.png');
+*/
+  life1_img = loadImage('images/2.png');
+  life2_img = loadImage('images/2.png');
+  life3_img = loadImage('images/2.png');
+  life4_img = loadImage('images/2.png');
+  life5_img = loadImage('images/2.png');
 
   bomb_img = loadImage('images/bomb.png'); 
   bombSound = loadSound('Sounds/Bomb.wav');
@@ -130,27 +136,27 @@ function setup() {
    //life1 = createSprite(1105,50);
    life1 = createSprite(0.8*windowWidth,0.06*windowHeight);
    life1.addImage(life1_img);
-   life1.scale = 0.5;
+   life1.scale = 0.15;
 
    //life2 = createSprite(1040,50);
    life2 = createSprite(0.75*windowWidth,0.06*windowHeight)
    life2.addImage(life2_img);
-   life2.scale = 0.5;
+   life2.scale = 0.15;
 
    //life3 = createSprite(975,50);
    life3 = createSprite(0.7*windowWidth,0.06*windowHeight)
    life3.addImage(life3_img);
-   life3.scale = 0.5;
+   life3.scale = 0.15;
 
    //life4 = createSprite(910,50);
    life4 = createSprite(0.65*windowWidth,0.06*windowHeight)
    life4.addImage(life4_img);
-   life4.scale =0.5;
+   life4.scale =0.15;
 
    //life5 = createSprite(845,50);
    life5 = createSprite(0.6*windowWidth,0.06*windowHeight)
    life5.addImage(life5_img)
-   life5.scale = 0.5;
+   life5.scale = 0.15;
 
    diver.addAnimation("diverMoving",diver_img);
    diver.addAnimation("flippedDiver",flippedDiver_img);
@@ -374,7 +380,6 @@ if(gameState === "END"){
 
 //intro gameStates
 if(gameState === "intro"){
- 
   
   marineNinja.visible = true;
   playButton.visible = false;
